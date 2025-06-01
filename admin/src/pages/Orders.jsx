@@ -16,7 +16,7 @@ const Orders = ({token}) => {
     try{
       const response = await axios.post(backendUrl+'/api/order/list',{},{headers:{token}})
       if(response.data.success){
-        setOrders(response.data.orders)
+        setOrders(response.data.orders.reverse()); // we will reverse the orders so that the latest order will be displayed first
       }
       else{
         toast.error(response.data.message);

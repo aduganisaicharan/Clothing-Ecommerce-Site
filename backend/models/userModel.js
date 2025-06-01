@@ -9,5 +9,11 @@ const userSchema = new mongoose.Schema({
 },{minimize:false})
 
 const userModel = mongoose.models.user || mongoose.model("user",userSchema)
+// schema = 
+// A Schema in Mongoose defines the structure of your documents inside a MongoDB collection.
+// model = 
+// A Model is created from the Schema. It's like a class that lets you:
+// Interact with the actual MongoDB collection
+// Perform operations like find, save, update, delete, etc.
 
 export default userModel                

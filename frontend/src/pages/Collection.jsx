@@ -11,7 +11,7 @@ const Collection = ()=>{
     const [subCategory,setSubcategory] = useState([]);
     const [sortType, setSortType] = useState('relevant');
 
-
+    // this will show the filter options when clicked on filter button
     // check and uncheck implementing using toggle function add if not there 
     // delete if there for both category and sub category
     const toggleCategory = (e)=>{
@@ -117,8 +117,8 @@ const Collection = ()=>{
                 </div>
             </div>
 
-                {/* rightside */}
-                <div className='flex-1'>
+            {/* rightside */}
+            <div className='flex-1'>
                     <div className='flex justify-between text-base sm:text-2xl mb-4'>
                         <Title text1={'All'} text2={'Collections'}/>
                         {/* product sort */}

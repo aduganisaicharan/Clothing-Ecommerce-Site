@@ -2,9 +2,9 @@ import userModel from "../models/userModel.js"
 
 // add products to user cart --> we added the logic for the add to cart 
 const addToCart = async(req,res)=>{ // here we will get the userid 
-    // we will use the other req body property to update the product data in the usersc cart 
+    // we will use the other req body property to update the product data in the users cart 
     try{
-        const {userId, itemId, size} = req.body
+        const {userId, itemId, size} = req.body; // we will get the userId from the token and itemId and size from the frontend
         // using this userid we will find it from usermodel we add this item id and size in cart data 
         const userData = await userModel.findById(userId);
         let cartData = await userData.cartData;

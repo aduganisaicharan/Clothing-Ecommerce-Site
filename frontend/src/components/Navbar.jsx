@@ -7,7 +7,7 @@ const Navbar = ()=>{
     const {setShowSearch, getCartCount, showSearch, navigate, token, setToken, setCartItems} = useContext(ShopContext)
     const [visible, setVisible] = useState(false);
     const logout = ()=>{
-        navigate('/login')
+        navigate('/login');
         localStorage.removeItem('token')
         setToken('')
         setCartItems({})
@@ -27,12 +27,12 @@ const Navbar = ()=>{
                     <p className="uppercase">Collection</p>
                     <hr className="border-none w-2/4 h-[1.5px] bg-gray-700 hidden"/>
                 </NavLink>
-                
+
                 <NavLink to='/about' className="flex flex-col items-center gap-1">
                     <p className="uppercase">about</p>
                     <hr className="border-none w-2/4 h-[1.5px] bg-gray-700 hidden"/>
                 </NavLink>
-                
+
                 <NavLink to='/contact' className="flex flex-col items-center gap-1">
                     <p className="uppercase">contact</p>
                     <hr className="border-none w-2/4 h-[1.5px] bg-gray-700 hidden"/>
@@ -49,7 +49,7 @@ const Navbar = ()=>{
                         <div className="flex flex-col gap-2 w-36 px-5 bg-slate-200 text-slate-500 py-3">
                             <p className="cursor-pointer hover:font-semibold hover:text-black">My profile</p>
                             <p onClick={()=>navigate('/orders')} className="cursor-pointer hover:font-semibold hover:text-black">Orders</p>
-                            <p onClick={logout} className="cursor-pointer hover:font-semibold hover:text-black">Logout</p>
+                            <p onClick={()=>logout()} className="cursor-pointer hover:font-semibold hover:text-black">Logout</p>
                         </div>
                     </div>
                     }
@@ -64,7 +64,7 @@ const Navbar = ()=>{
                 <div className={`absolute top-0 bottom-0 right-0 bg-white overflow-hidden ${visible? 'w-full':'w-0'} transition-all`}>
                     <div className="flex flex-col text-gray-600">            
                         <div onClick={()=>setVisible(false)} className="flex items-center cursor-pointer gap-4 p-3">
-                            <img className="h-4 rotate-180 text-1xl" src={assets.dropdown_icon} alt="" />
+                            <img className="h-4 rotate-180 text-1xl" src={assets.dropdown_icon} alt=""/>
                             <p >Back</p>
                         </div>
                         <NavLink onClick={()=>{setVisible(false)}} className='uppercase py-2 pl-4 border' to='/'>Home</NavLink>

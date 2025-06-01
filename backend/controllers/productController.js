@@ -4,7 +4,7 @@ import productModel from '../models/productModel.js'
 const addProduct = async(req,res)=>{
     // to add a product we will create middleware using multer = if we send any file as form data will be piled using multer 
     try{
-        const {name, description, category, price, subCategory, sizes, bestSeller} = req.body; // product details 
+        const {name, description, category, price, subCategory, sizes, bestSeller} = req.body; // product details ;
         // console.log(bestSeller)
         // we get product images using req.files 
         const image1 =req.files.image1 && req.files.image1[0]

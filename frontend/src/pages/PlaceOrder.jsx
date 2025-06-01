@@ -27,6 +27,34 @@ const PlaceOrder = () => {
     setFormData(data =>({...data,[name]:value}))
   }
 
+  const initPay = (order)=>{
+    const options = {
+      key:import.meta.env.VITE_RAZORPAY_KEY_ID,
+      amount: order.amount, // amount in the smallest currency unit
+      currency: order.currency,
+      name:'Order Payment',
+      description:'Order Payment',
+      order_id: order.id, // This is the id of the order created in the backend
+      receipt : order.receipt,
+      handler: async (response) => {
+        console.log(response);
+        try{
+          const {data} = await axios.post(backendUrl+'/api/order/verifyRazorpay', response, {headers:{token}})
+          if(data.success){ 
+            navigate('/orders')
+            setcartItems({})
+          }
+        }
+        catch(error){
+          console.log(error);
+          toast.error(error.message)
+        }
+      }
+    }
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  }
+
   const onSubmitHandler = async(event)=>{
     event.preventDefault();
     try{
@@ -60,6 +88,13 @@ const PlaceOrder = () => {
           }
           else{
             toast.error(response.data.message)
+          }
+          break;
+
+        case 'razorpay':
+          const responseRazorpay = await axios.post(backendUrl+'/api/order/razorpay',orderData,{headers:{token}})
+          if(responseRazorpay.data.success){
+            initPay(responseRazorpay.data.order)
           }
           break;
         default:

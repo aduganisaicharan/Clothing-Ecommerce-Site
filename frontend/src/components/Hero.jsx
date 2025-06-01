@@ -14,7 +14,6 @@ const Hero = ()=>{
                         <p className='font-semibold text-sm md:text-base'>SHOP NOW</p>
                         <p className='w-8 md:w-11 h-[1px] bg-[#414141]'></p>
                     </div>
-                    
                 </div>
             </div>
             <img className="w-full sm:w-1/2" src={assets.hero_img} alt="" />

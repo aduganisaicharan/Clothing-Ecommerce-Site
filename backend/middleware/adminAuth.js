@@ -1,7 +1,7 @@
 // we will add this middleware for those api where we need the admin permission like adding product removing product and to display the orders and some other apis
 import jwt from 'jsonwebtoken'
 
-const adminAuth = async(req, res,next)=>{
+const adminAuth = async(req, res, next)=>{
     try{
         const {token} = req.headers // when we call api from adminauth then in headers we add the token that we getting from the admin login
         // if token is available then continue else we generate response that user is not authorized to access this api  

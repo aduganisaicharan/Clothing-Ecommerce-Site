@@ -1,6 +1,6 @@
 // we will authenticate user whenever user add to cart or update or place the order 
-// this middleware will convett the user token into user id 
-import jwt from 'jsonwebtoken';
+// this middleware will convert the user token into user id 
+import jwt from 'jsonwebtoken'; 
 
 const authUser = async(req,res,next)=>{
     const {token} = req.headers;

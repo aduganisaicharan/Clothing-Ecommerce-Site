@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 const SearchBar = () => {
   const {search, setSearch, showSearch, setShowSearch} = useContext(ShopContext);
-  const location = useLocation();
+  const location = useLocation(); // current location object to check the path 
   const [visible, setVisible] = useState(false);
   useEffect(()=>{
     if(location.pathname.includes('collection')){

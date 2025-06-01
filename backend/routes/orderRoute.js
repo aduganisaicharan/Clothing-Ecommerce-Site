@@ -1,9 +1,9 @@
 import express from 'express';
-import {updateStatus, userOrders, allOrders, placeOrderRazorpay, placeOrderStripe, placeOrder} from '../controllers/orderController.js'
+import {updateStatus, userOrders, allOrders, placeOrderRazorpay, placeOrderStripe, placeOrder, verifyRazorpay} from '../controllers/orderController.js'
 import adminAuth from '../middleware/adminAuth.js'
-import authUser from '../middleware/auth.js'
+import authUser from '../middleware/auth.js';
 
-const orderRouter = express.Router()
+const orderRouter = express.Router();
 
 // Admin features  
 orderRouter.post('/list',adminAuth,allOrders); // --> here the end point will be list
@@ -16,5 +16,8 @@ orderRouter.post('/razorpay',authUser,placeOrderRazorpay); // --> here the end p
 
 // User Features
 orderRouter.post('/userorders',authUser,userOrders); // --> here the end point will be usersorders
+
+// verify payments
+orderRouter.post('/verifyRazorpay',authUser,verifyRazorpay); // --> here the end point will be verifyRazorpay
 
 export default orderRouter
